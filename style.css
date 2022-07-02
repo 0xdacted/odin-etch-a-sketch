@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 .content {
     display: flex;
     flex-direction: column;
@@ -5,8 +9,9 @@
     width: 960px;
 }
 .container {
-display: inline-block;
-border: 5px solid black;
+    display: inline-block;
+    border: 5px solid black;
+    display: flex;
 }
 
 
@@ -18,11 +23,8 @@ grid {
 }
 
 cell {
-    justify-content: center;
-    align-items: center;
-    display: flex;
     background: white;
-    
+    border: solid black 1px;
 }
 
 .color {
