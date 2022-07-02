@@ -9,14 +9,16 @@ for (i = 0; i <= 256; i++) {
     grid.appendChild(cell);
 }
 
-let cell = document.querySelectorAll("cell");
+const cell = document.querySelectorAll("cell");
+const button = document.querySelector("resize")
 
-cell.forEach(cell => {cell.addEventListener('mouseenter', e => {
+cell.forEach(cell => {cell.addEventListener('mouseenter', () => {
     console.log(cell.id);
     cell.classList.add("color");
 })});
 
-cell.forEach(cell => {cell.addEventListener('mouseleave', e => {
+cell.forEach(cell => {cell.addEventListener('mouseleave', () => {
     console.log(cell.id);
-    
 })});
+
+
