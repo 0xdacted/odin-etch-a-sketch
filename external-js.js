@@ -17,7 +17,8 @@ for (i = 0; i <= 256; i++) {
 
 
 let cell = document.querySelectorAll("cell");
-let cellArray = Array.from(cell);
+
+
 
 
 cell.forEach(cell => {cell.addEventListener('mouseenter', () => {
@@ -31,29 +32,27 @@ button.textContent = "Resize grid";
 button.addEventListener('click', () => {
     let response = prompt('How many squares per side would you like the grid to contain?');
     let size = parseInt(response);
-    removeSquares(i);
+    removeSquares();
     createSquares(size);
 
 });
 
 function removeSquares() {
-    for (let i = 0; len = cellArray.length, i < len; i++) {
-        cell[i].remove();
+    for (let b = 0; len = cell.length, b < len; b++) {
+        if (cell[b].classList.contains('color')) {
+            cell[b].classList.remove('color');
+        }
     }
     }
 
 
 function createSquares(size) {
-    for (i = 0; i <= (size * size); i++) {
-        let newCell = document.createElement("newCell");
-        newCell.id = i;
-        grid.appendChild(newCell);
+    for (a = 0; a <= (size * size); a++) {
+        let cell = document.createElement("cell");
+        cell.id = a;
+        grid.appendChild(cell);
     }
     }
 
-    let newCell = document.querySelectorAll("newCell");
-
-    newCell.forEach(newCell => {newCell.addEventListener('mouseenter', () => {
-        newCell.classList.add("color");
-    })});
+   
     
