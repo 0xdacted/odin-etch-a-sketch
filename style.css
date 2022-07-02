@@ -22,7 +22,7 @@ grid {
    
 }
 
-cell {
+cell, newCell {
     background: white;
     border: solid black 1px;
 }
@@ -30,3 +30,4 @@ cell {
 .color {
     background-color: aqua;
 }
+
