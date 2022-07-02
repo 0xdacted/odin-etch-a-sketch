@@ -13,8 +13,10 @@ let cell = document.querySelectorAll("cell");
 
 cell.forEach(cell => {cell.addEventListener('mouseenter', e => {
     console.log(cell.id);
+    cell.classList.add("color");
 })});
 
 cell.forEach(cell => {cell.addEventListener('mouseleave', e => {
     console.log(cell.id);
+    
 })});
