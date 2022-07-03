@@ -36,8 +36,22 @@ button.addEventListener('click', () => {
 
 function active() {
 let cells = document.querySelectorAll("cell");
-    cells.forEach(cell => {cell.addEventListener('mouseover', () => {
-        cell.classList.add('color');
+    cells.forEach(cell => {cell.addEventListener('mouseenter', () => {
+        const randomColor = getRandomColor();
+        cell.style.backgroundColor = randomColor;
     })});
 }
 active();
+
+const getRandomNumber = (limit) => {
+    return Math.floor(Math.random() * limit);
+  };
+
+const getRandomColor = () => {
+    const h = getRandomNumber(360);
+    const s = getRandomNumber(100);
+    const l = getRandomNumber(100);
+  
+    return `hsl(${h}deg, ${s}%, ${l}%)`;
+  };
+  
