@@ -7,52 +7,54 @@ const content = document.querySelector(".content");
 const button = document.createElement("button");
 content.appendChild(button);
 
+let size = 50;
 
+function createSquares(screenSize) {
+    for (i = 0; i <= (screenSize ** 2); i++) {
+        let cell = document.createElement("cell");
+        cell.id = i;
+        grid.appendChild(cell);
+    }
+    grid.style.gridTemplateColumns = `repeat(${screenSize}, auto)`;
+    grid.style.gridTemplateRows = `repeat(${screenSize}, auto)`;
 
-for (i = 0; i <= 256; i++) {
-    let cell = document.createElement("cell");
-    cell.id = i;
-    grid.appendChild(cell);
-}
+    }
+
+createSquares(size);
 
 
 let cell = document.querySelectorAll("cell");
 
 
 
-
-cell.forEach(cell => {cell.addEventListener('mouseenter', () => {
-    cell.classList.add("color");
-})});
-
-
-
 button.textContent = "Resize grid";
 
 button.addEventListener('click', () => {
-    let response = prompt('How many squares per side would you like the grid to contain?');
-    let size = parseInt(response);
     removeSquares();
+    let response = prompt('How many squares per side would you like the grid to contain? Please input a value less than 100', 50);
+    let size = parseInt(response);
+    if (size > 100) {
+        let response = prompt('How many squares per side would you like the grid to contain? Please input a value less than 100', 50)
+        let size = parseInt(response);
+        if (size <= 100) {
+            createSquares(size);
+        }
+        else {
+            createSquares(50);
+        }
+    }
+    else {
     createSquares(size);
-
+    }
 });
 
 function removeSquares() {
     for (let b = 0; len = cell.length, b < len; b++) {
-        if (cell[b].classList.contains('color')) {
-            cell[b].classList.remove('color');
-        }
+            cell[b].remove();
     }
     }
 
 
-function createSquares(size) {
-    for (a = 0; a <= (size * size); a++) {
-        let cell = document.createElement("cell");
-        cell.id = a;
-        grid.appendChild(cell);
-    }
-    }
-
-   
-    
+    cell.forEach(cell => {cell.addEventListener('mouseenter', () => {
+        cell.classList.add("color");
+    })});

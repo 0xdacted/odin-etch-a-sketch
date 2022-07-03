@@ -7,22 +7,23 @@
     flex-direction: column;
     flex-wrap: wrap;
     width: 960px;
+    
 }
 .container {
     display: inline-block;
     border: 5px solid black;
     display: flex;
+   
 }
 
 
 grid {
     display: grid;
-    grid-template-columns: repeat(16, 60px);
-    grid-template-rows: repeat(16, 60px);
-   
+       width: 960px;
+       height: 960px;
 }
 
-cell, newCell {
+cell {
     background: white;
     border: solid black 1px;
 }
