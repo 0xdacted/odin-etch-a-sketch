@@ -10,51 +10,34 @@ content.appendChild(button);
 let size = 50;
 
 function createSquares(screenSize) {
-    for (i = 0; i <= (screenSize ** 2); i++) {
+    for (i = 0; i < (screenSize * screenSize); i++) {
         let cell = document.createElement("cell");
         cell.id = i;
         grid.appendChild(cell);
     }
     grid.style.gridTemplateColumns = `repeat(${screenSize}, auto)`;
     grid.style.gridTemplateRows = `repeat(${screenSize}, auto)`;
-
+    active();
     }
 
 createSquares(size);
 
-
-let cell = document.querySelectorAll("cell");
-
-
-
 button.textContent = "Resize grid";
 
 button.addEventListener('click', () => {
-    removeSquares();
     let response = prompt('How many squares per side would you like the grid to contain? Please input a value less than 100', 50);
     let size = parseInt(response);
-    if (size > 100) {
-        let response = prompt('How many squares per side would you like the grid to contain? Please input a value less than 100', 50)
-        let size = parseInt(response);
-        if (size <= 100) {
-            createSquares(size);
-        }
-        else {
-            createSquares(50);
-        }
+    if (size > 100 || size === null) {
+        createSquares(100);
     }
-    else {
+    grid.innerHTML = '';
     createSquares(size);
-    }
 });
 
-function removeSquares() {
-    for (let b = 0; len = cell.length, b < len; b++) {
-            cell[b].remove();
-    }
-    }
-
-
-    cell.forEach(cell => {cell.addEventListener('mouseenter', () => {
-        cell.classList.add("color");
+function active() {
+let cells = document.querySelectorAll("cell");
+    cells.forEach(cell => {cell.addEventListener('mouseover', () => {
+        cell.classList.add('color');
     })});
+}
+active();
