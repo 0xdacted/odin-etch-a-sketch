@@ -28,6 +28,7 @@ button.addEventListener('click', () => {
     let response = prompt('How many squares per side would you like the grid to contain? Please input a value less than 100', 50);
     let size = parseInt(response);
     if (size > 100 || size === null) {
+        grid.innerHTML = '';
         createSquares(100);
     }
     grid.innerHTML = '';
